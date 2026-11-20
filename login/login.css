@@ -93,53 +93,57 @@ h1, h2, h3, .logo-text {
 
 /* ===== KÉT ÁTLÓS FILMSZALAG ===== */
 
-/* A szalagokon lévő lyukak és kockák mintája (SVG) */
-:root {
-    --filmstrip-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='100' viewBox='0 0 400 100'%3E%3Crect width='400' height='100' fill='%23181A26'/%3E%3Crect x='0' y='0' width='400' height='15' fill='%23D9B26A'/%3E%3Crect x='0' y='85' width='400' height='15' fill='%23D9B26A'/%3E%3Crect x='10' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='30' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='50' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='70' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='90' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='110' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='130' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='150' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='170' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='190' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='210' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='230' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='250' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='270' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='290' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='310' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='330' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='350' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='370' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='390' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='10' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='30' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='50' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='70' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='90' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='110' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='130' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='150' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='170' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='190' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='210' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='230' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='250' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='270' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='290' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='310' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='330' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='350' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='370' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='390' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Cline x1='100' y1='15' x2='100' y2='85' stroke='%23D9B26A' stroke-width='2'/%3E%3Cline x1='200' y1='15' x2='200' y2='85' stroke='%23D9B26A' stroke-width='2'/%3E%3Cline x1='300' y1='15' x2='300' y2='85' stroke='%23D9B26A' stroke-width='2'/%3E%3Ctext x='25' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34%3C/text%3E%3Ctext x='125' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E35%3C/text%3E%3Ctext x='225' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34A%3C/text%3E%3Ctext x='325' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E35%3C/text%3E%3Ctext x='25' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E33A%3C/text%3E%3Ctext x='125' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34%3C/text%3E%3Ctext x='225' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E35%3C/text%3E%3Ctext x='325' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34%3C/text%3E%3C/svg%3E");
-}
-
-/* Első szalag (balról jobbra lejt) */
+/* 1. SZALAG (Bal oldalon, felfelé tekeredik) */
 .bg-filmstrip-1 {
     position: fixed;
     top: 50%; left: 50%;
-    width: 300vw; /* Nagyon hosszú, hogy átérjen az egészen */
-    height: 200px; /* A szalag vastagsága */
-    background-image: var(--filmstrip-svg);
-    background-size: 400px 100px; /* A minta ismétlődése */
+    width: 300vw; 
+    height: 200px; 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='100' viewBox='0 0 400 100'%3E%3Crect width='400' height='100' fill='%23181A26'/%3E%3Crect x='0' y='0' width='400' height='15' fill='%23D9B26A'/%3E%3Crect x='0' y='85' width='400' height='15' fill='%23D9B26A'/%3E%3Crect x='10' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='30' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='50' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='70' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='90' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='110' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='130' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='150' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='170' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='190' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='210' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='230' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='250' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='270' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='290' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='310' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='330' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='350' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='370' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='390' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='10' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='30' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='50' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='70' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='90' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='110' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='130' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='150' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='170' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='190' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='210' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='230' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='250' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='270' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='290' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='310' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='330' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='350' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='370' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='390' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Cline x1='100' y1='15' x2='100' y2='85' stroke='%23D9B26A' stroke-width='2'/%3E%3Cline x1='200' y1='15' x2='200' y2='85' stroke='%23D9B26A' stroke-width='2'/%3E%3Cline x1='300' y1='15' x2='300' y2='85' stroke='%23D9B26A' stroke-width='2'/%3E%3Ctext x='25' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34%3C/text%3E%3Ctext x='125' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E35%3C/text%3E%3Ctext x='225' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34A%3C/text%3E%3Ctext x='325' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E35%3C/text%3E%3Ctext x='25' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E33A%3C/text%3E%3Ctext x='125' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34%3C/text%3E%3Ctext x='225' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E35%3C/text%3E%3Ctext x='325' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34%3C/text%3E%3C/svg%3E");
+    background-size: 400px 100px; 
     background-repeat: repeat-x;
     
-    transform: translate(-50%, -50%) rotate(-25deg); /* A rajz szerinti dőlésszög */
+    transform: translate(-50%, -50%) rotate(-25deg); 
     
-    opacity: 0.15; /* Halvány */
+    opacity: 0.15; 
     z-index: 0;
     pointer-events: none;
-    box-shadow: 0 0 50px rgba(0,0,0,0.8); /* Egy kis mélységérzet */
+    box-shadow: 0 0 50px rgba(0,0,0,0.8); 
+    
+    /* Animáció: A háttér jobbra mozog */
+    animation: scrollFilmStrip1 12s linear infinite;
 }
 
-/* Második szalag (jobbról balra, meredeken) */
+/* 2. SZALAG (Jobb oldalon, lefelé tekeredik) */
 .bg-filmstrip-2 {
     position: fixed;
     top: 50%; left: 50%;
     width: 300vw;
     height: 200px;
-    background-image: var(--filmstrip-svg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='100' viewBox='0 0 400 100'%3E%3Crect width='400' height='100' fill='%23181A26'/%3E%3Crect x='0' y='0' width='400' height='15' fill='%23D9B26A'/%3E%3Crect x='0' y='85' width='400' height='15' fill='%23D9B26A'/%3E%3Crect x='10' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='30' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='50' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='70' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='90' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='110' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='130' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='150' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='170' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='190' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='210' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='230' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='250' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='270' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='290' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='310' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='330' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='350' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='370' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='390' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='10' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='30' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='50' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='70' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='90' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='110' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='130' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='150' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='170' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='190' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='210' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='230' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='250' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='270' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='290' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='310' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='330' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='350' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='370' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='390' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Cline x1='100' y1='15' x2='100' y2='85' stroke='%23D9B26A' stroke-width='2'/%3E%3Cline x1='200' y1='15' x2='200' y2='85' stroke='%23D9B26A' stroke-width='2'/%3E%3Cline x1='300' y1='15' x2='300' y2='85' stroke='%23D9B26A' stroke-width='2'/%3E%3Ctext x='25' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34%3C/text%3E%3Ctext x='125' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E35%3C/text%3E%3Ctext x='225' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34A%3C/text%3E%3Ctext x='325' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E35%3C/text%3E%3Ctext x='25' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E33A%3C/text%3E%3Ctext x='125' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34%3C/text%3E%3Ctext x='225' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E35%3C/text%3E%3Ctext x='325' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34%3C/text%3E%3C/svg%3E");
     background-size: 400px 100px;
     background-repeat: repeat-x;
     
-    transform: translate(-50%, -50%) rotate(70deg); /* A másik dőlésszög */
+    transform: translate(-50%, -50%) rotate(70deg); 
     
-    opacity: 0.1; /* Még halványabb, hogy ne nyomja el a másikat */
+    opacity: 0.1; 
     z-index: 0;
     pointer-events: none;
     box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    
+    /* Animáció: A háttér balra mozog */
+    animation: scrollFilmStrip2 12s linear infinite;
 }
 
-@keyframes grainShift {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(-2%, -1%); }
-    50% { transform: translate(1%, 2%); }
-    75% { transform: translate(-1%, 1%); }
-    100% { transform: translate(0, 0); }
+/* ===== ANIMÁCIÓK ===== */
+@keyframes scrollFilmStrip1 {
+    0% { background-position: 0 0; }
+    100% { background-position: 400px 0; } 
+}
+
+@keyframes scrollFilmStrip2 {
+    0% { background-position: 0 0; }
+    100% { background-position: -400px 0; } 
 }
 
 /* ===== VISSZA GOMB ===== */
