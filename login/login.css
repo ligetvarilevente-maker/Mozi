@@ -6,15 +6,17 @@
 }
 
 :root {
-    --bg: #0A0B10;
-    --bg-2: #0D0E14;
-    --card: #14151B;
+    /* Új, világosabb, füstös mélykék/ibolyás háttér */
+    --bg: #11131C; 
+    --bg-2: #181A26; 
+    
+    --card: #1D1F2D;
     --text: #F2F1EC;
     --muted: #8B8B96;
     --gold: #D9B26A;
     --gold-hover: #E8C685;
     --wine: #6B2E3A;
-    --border: #23242C;
+    --border: rgba(255, 255, 255, 0.08); /* Finomabb, áttetszőbb keret */
 }
 
 body {
@@ -48,8 +50,8 @@ h1, h2, h3, .logo-text {
 
 .bg-grid {
     background-image:
-        linear-gradient(rgba(217,178,106,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(217,178,106,0.035) 1px, transparent 1px);
+        linear-gradient(rgba(217,178,106,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217,178,106,0.04) 1px, transparent 1px);
     background-size: 80px 80px;
 
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
@@ -64,27 +66,72 @@ h1, h2, h3, .logo-text {
     z-index: 0;
 }
 
+/* Kicsit erősebb és melegebb arany fény */
 .bg-glow-gold {
     top: -200px;
     left: -200px;
     width: 700px;
     height: 700px;
-    background: radial-gradient(circle, rgba(217,178,106,0.16), transparent 70%);
+    background: radial-gradient(circle, rgba(217,178,106,0.18), transparent 70%);
 }
 
+/* Kékebb, lilásabb fény a borvörös helyett */
 .bg-glow-wine {
     bottom: -250px;
     right: -200px;
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle, rgba(107,46,58,0.22), transparent 70%);
+    background: radial-gradient(circle, rgba(90,60,140,0.15), transparent 70%);
 }
 
 .bg-grain {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-    opacity: 0.05;
+    opacity: 0.04;
     mix-blend-mode: overlay;
     animation: grainShift 10s steps(8) infinite;
+}
+
+/* ===== KÉT ÁTLÓS FILMSZALAG ===== */
+
+/* A szalagokon lévő lyukak és kockák mintája (SVG) */
+:root {
+    --filmstrip-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='100' viewBox='0 0 400 100'%3E%3Crect width='400' height='100' fill='%23181A26'/%3E%3Crect x='0' y='0' width='400' height='15' fill='%23D9B26A'/%3E%3Crect x='0' y='85' width='400' height='15' fill='%23D9B26A'/%3E%3Crect x='10' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='30' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='50' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='70' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='90' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='110' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='130' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='150' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='170' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='190' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='210' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='230' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='250' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='270' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='290' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='310' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='330' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='350' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='370' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='390' y='3' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='10' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='30' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='50' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='70' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='90' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='110' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='130' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='150' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='170' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='190' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='210' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='230' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='250' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='270' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='290' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='310' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='330' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='350' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='370' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Crect x='390' y='88' width='10' height='9' rx='2' fill='%23181A26'/%3E%3Cline x1='100' y1='15' x2='100' y2='85' stroke='%23D9B26A' stroke-width='2'/%3E%3Cline x1='200' y1='15' x2='200' y2='85' stroke='%23D9B26A' stroke-width='2'/%3E%3Cline x1='300' y1='15' x2='300' y2='85' stroke='%23D9B26A' stroke-width='2'/%3E%3Ctext x='25' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34%3C/text%3E%3Ctext x='125' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E35%3C/text%3E%3Ctext x='225' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34A%3C/text%3E%3Ctext x='325' y='13' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E35%3C/text%3E%3Ctext x='25' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E33A%3C/text%3E%3Ctext x='125' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34%3C/text%3E%3Ctext x='225' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E35%3C/text%3E%3Ctext x='325' y='98' fill='%23D9B26A' font-family='monospace' font-size='8' font-weight='bold'%3E34%3C/text%3E%3C/svg%3E");
+}
+
+/* Első szalag (balról jobbra lejt) */
+.bg-filmstrip-1 {
+    position: fixed;
+    top: 50%; left: 50%;
+    width: 300vw; /* Nagyon hosszú, hogy átérjen az egészen */
+    height: 200px; /* A szalag vastagsága */
+    background-image: var(--filmstrip-svg);
+    background-size: 400px 100px; /* A minta ismétlődése */
+    background-repeat: repeat-x;
+    
+    transform: translate(-50%, -50%) rotate(-25deg); /* A rajz szerinti dőlésszög */
+    
+    opacity: 0.15; /* Halvány */
+    z-index: 0;
+    pointer-events: none;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8); /* Egy kis mélységérzet */
+}
+
+/* Második szalag (jobbról balra, meredeken) */
+.bg-filmstrip-2 {
+    position: fixed;
+    top: 50%; left: 50%;
+    width: 300vw;
+    height: 200px;
+    background-image: var(--filmstrip-svg);
+    background-size: 400px 100px;
+    background-repeat: repeat-x;
+    
+    transform: translate(-50%, -50%) rotate(70deg); /* A másik dőlésszög */
+    
+    opacity: 0.1; /* Még halványabb, hogy ne nyomja el a másikat */
+    z-index: 0;
+    pointer-events: none;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
 }
 
 @keyframes grainShift {
@@ -134,7 +181,7 @@ h1, h2, h3, .logo-text {
     display: flex;
     justify-content: center;
 
-    padding: 40px 20px; /* Több hely a függőleges nézethez */
+    padding: 40px 20px;
 }
 
 /* ===== AUTH KONTÉNER ===== */
@@ -145,14 +192,14 @@ h1, h2, h3, .logo-text {
 
     padding: 40px;
 
-    background: rgba(20, 21, 27, 0.6);
+    background: rgba(24, 26, 38, 0.7); /* Kicsit átlátszóbb kártya a szép háttérhez */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 
     border: 1px solid var(--border);
     border-radius: 20px;
 
-    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
 }
 
 /* ===== LOGÓ ===== */
@@ -212,7 +259,7 @@ h1, h2, h3, .logo-text {
     border: 1px solid var(--border);
     border-radius: 999px;
 
-    background: transparent;
+    background: rgba(0,0,0,0.2);
     overflow: hidden;
 }
 
@@ -366,8 +413,6 @@ h1, h2, h3, .logo-text {
     background: rgba(0,0,0,0.4);
 }
 
-/* ===== OPCIÓK ===== */
-
 /* ===== OPCIÓK ÉS CHECKBOX ===== */
 
 .form-options {
@@ -395,10 +440,10 @@ h1, h2, h3, .logo-text {
     cursor: pointer;
 }
 
-/* --- ÚJ: Feltételek checkbox (csak a négyzet kattintható) --- */
+/* --- Feltételek checkbox (csak a négyzet kattintható) --- */
 .terms-checkbox {
     display: flex;
-    align-items: flex-start; /* A szöveg hosszú lehet, ezért felülre igazítjuk */
+    align-items: flex-start;
     gap: 10px;
 }
 
@@ -408,12 +453,11 @@ h1, h2, h3, .logo-text {
     justify-content: center;
     width: 18px;
     height: 18px;
-    margin-top: 2px; /* Pici igazítás a szöveghez */
+    margin-top: 2px;
     cursor: pointer;
-    flex-shrink: 0; /* Ne zsugorodjon össze */
+    flex-shrink: 0;
 }
 
-/* Az eredeti checkbox elrejtése */
 .checkbox-wrapper input[type="checkbox"] {
     position: absolute;
     opacity: 0;
@@ -422,7 +466,6 @@ h1, h2, h3, .logo-text {
     width: 0;
 }
 
-/* Az egyedi négyzet */
 .checkmark {
     width: 18px;
     height: 18px;
@@ -434,18 +477,15 @@ h1, h2, h3, .logo-text {
     transition: background-color 0.2s, border-color 0.2s;
 }
 
-/* Hover a négyzeten */
 .checkbox-wrapper:hover .checkmark {
     border-color: rgba(217,178,106,0.6);
 }
 
-/* Ha be van pipálva */
 .checkbox-wrapper input:checked ~ .checkmark {
     background-color: var(--gold);
     border-color: var(--gold);
 }
 
-/* Pipa ikon hozzáadása */
 .checkmark::after {
     content: "";
     position: absolute;
@@ -459,19 +499,16 @@ h1, h2, h3, .logo-text {
     transform: rotate(45deg);
 }
 
-/* A pipa megjelenítése bepipáláskor */
 .checkbox-wrapper input:checked ~ .checkmark::after {
     display: block;
 }
 
-/* A szöveg stílusa */
 .terms-text {
     font-size: 13px;
     color: var(--muted);
     line-height: 1.5;
 }
 
-/* A linkek stílusa a szövegen belül */
 .terms-text a {
     color: var(--gold);
     text-decoration: none;
@@ -487,7 +524,6 @@ h1, h2, h3, .logo-text {
     color: var(--gold);
     font-size: 13px;
     text-decoration: none;
-
     transition: color 0.2s;
 }
 
@@ -496,7 +532,7 @@ h1, h2, h3, .logo-text {
     text-decoration: underline;
 }
 
-/* ===== ARANY GOMB (Finom hover effekttel) ===== */
+/* ===== ARANY GOMB ===== */
 
 .btn-gold {
     display: inline-flex;
@@ -534,15 +570,12 @@ h1, h2, h3, .logo-text {
 .btn-gold:hover {
     background: var(--gold-hover);
     color: var(--bg);
-    
 }
 
-/* A nyíl finom elmozdulása */
 .btn-gold:hover svg {
     transform: translateX(3px);
 }
 
-/* Kattintáskor ne ugorjon semmit */
 .btn-gold:active {
     transform: none;
     box-shadow: none;
@@ -554,74 +587,60 @@ h1, h2, h3, .logo-text {
 
 /* ===== RESZPONZÍV ===== */
 
-/* Tablet nézet (kb. 768px-ig) */
 @media (max-width: 768px) {
     .auth-wrapper {
         padding: 30px 20px;
     }
-    
     .auth-container {
         padding: 35px 30px;
     }
 }
 
-/* Mobil nézet (kb. 520px-ig) */
 @media (max-width: 520px) {
     .auth-wrapper {
-        padding: 70px 16px 30px 16px; /* Több hely felül a Vissza gomb miatt */
+        padding: 70px 16px 30px 16px;
     }
-    
     .auth-container {
         padding: 30px 20px;
-        border-radius: 16px; /* Kicsit kisebb kerekítés mobilon */
+        border-radius: 16px;
     }
-
     .back-link {
         top: 20px;
         left: 20px;
         font-size: 13px;
     }
-
     .logo-text {
         font-size: 20px;
     }
-
     .auth-tabs {
         height: 42px;
         margin-bottom: 24px;
     }
-
     .auth-tab {
         font-size: 13px;
     }
-
     .form-options {
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
     }
-
     .btn-gold {
         padding: 12px 20px;
         font-size: 14px;
     }
 }
 
-/* Nagyon kicsi telefon (kb. 360px-ig) */
 @media (max-width: 360px) {
     .auth-wrapper {
         padding: 60px 12px 20px 12px;
     }
-
     .auth-container {
         padding: 25px 16px;
     }
-
     .auth-tab {
         font-size: 12px;
         padding: 0 4px;
     }
-
     .input-group input {
         padding: 10px 12px;
     }
