@@ -99,6 +99,10 @@
             <label for="reg-name">Telefon szám</label>
             <input type="tel" id="reg-name" placeholder="06201234567" pattern="[0-9+\-\s()]+" required>
           </div>
+           <div class="input-group">
+            <label for="reg-birth">Születési dátum</label>
+            <input type="date" id="reg-birth" min="1900-01-01"  required>
+          </div>
           <div class="input-group">
             <label for="reg-password">Jelszó</label>
             <input type="password" id="reg-password" placeholder="••••••••" required>
@@ -128,6 +132,17 @@
     </div>
 
   </main>
+   <script>
+    // Megakadályozza, hogy az év mezőbe 4 karakternél többet lehessen írni
+    document.getElementById('reg-birth').addEventListener('input', function(e) {
+      const parts = e.target.value.split('-');
+      if (parts[0] && parts[0].length > 4) {
+        parts[0] = parts[0].slice(0, 4); // Levágja a 4. karakter után
+        e.target.value = parts.join('-');
+      }
+    });
+  </script>
+</body>
 
 </body>
 </html>

@@ -416,6 +416,30 @@ h1, h2, h3, .logo-text {
     border-color: rgba(217,178,106,0.6);
     background: rgba(0,0,0,0.4);
 }
+/* ===== Dátum mező (Naptár ikon és stílus) ===== */
+
+/* A naptár ikon átszínezése aranyra/szürkére */
+.input-group input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg); /* Sötét ikon világosra */
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.input-group input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+/* Magának a dátum szövegnek a színe, ha be van állítva */
+.input-group input[type="date"] {
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Amikor üres (pl. mutatja, hogy éééé.hh.nn), az legyen szürke */
+.input-group input[type="date"]:invalid::-webkit-datetime-edit {
+    color: rgba(139,139,150,0.5);
+}
 
 /* ===== OPCIÓK ÉS CHECKBOX ===== */
 
