@@ -11,16 +11,15 @@
 </head>
 <body>
 
-  <!-- Globális háttér rétegek (ugyanazok, mint a főoldalon) -->
+  <!-- Globális háttér rétegek -->
   <div class="bg-layer bg-grid" aria-hidden="true"></div>
   <div class="bg-layer bg-glow bg-glow-gold" aria-hidden="true"></div>
   <div class="bg-layer bg-glow bg-glow-wine" aria-hidden="true"></div>
   <div class="bg-layer bg-grain" aria-hidden="true"></div>
+  <div class="bg-layer bg-filmstrip-1" aria-hidden="true"></div>
+  <div class="bg-layer bg-filmstrip-2" aria-hidden="true"></div>
 
-<div class="bg-layer bg-filmstrip-1" aria-hidden="true"></div>
-<div class="bg-layer bg-filmstrip-2" aria-hidden="true"></div>
-
-  <!-- Vissza gomb a főoldalra -->
+  <!-- Vissza gomb -->
   <a href="midnight.html" class="back-link">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M19 12H5M12 19l-7-7 7-7"/>
@@ -28,9 +27,8 @@
     Vissza a főoldalra
   </a>
 
-  <!-- KÖZÉPRE IGAZÍTOTT TARTALOM -->
+  <!-- TARTALOM -->
   <main class="auth-wrapper">
-    
     <div class="auth-container">
       
       <!-- Logó -->
@@ -44,30 +42,39 @@
         </a>
       </div>
 
-      <!-- A CSS-es váltáshoz szükséges rádiógombok (rejtettek) -->
-        <input type="radio" name="auth-tab" id="tab-login" class="auth-radio" checked>
-        <input type="radio" name="auth-tab" id="tab-register" class="auth-radio">
+      <!-- Rejtett rádiógombok a fülek váltásához -->
+      <input type="radio" name="auth-tab" id="tab-login" class="auth-radio" checked>
+      <input type="radio" name="auth-tab" id="tab-register" class="auth-radio">
 
-      <!-- Fülek (Tabok) -->
+      <!-- Fülek -->
       <div class="auth-tabs">
         <label for="tab-login" class="auth-tab">Bejelentkezés</label>
         <label for="tab-register" class="auth-tab">Regisztráció</label>
         <div class="tab-slider"></div>
       </div>
 
-      <!-- Űrlapok konténere -->
+      <!-- Űrlapok -->
       <div class="auth-forms">
         
-        <!-- BEJELENTKEZÉS ŰRLAP -->
+        <!-- BEJELENTKEZÉS -->
         <form class="auth-form form-login" action="#" method="POST">
           <div class="input-group">
             <label for="login-email">Email cím</label>
-            <input type="email" id="login-email" placeholder="pelda@email.com" required>
+            <input type="email" id="login-email" name="login_email" placeholder="pelda@email.com" required>
           </div>
+
           <div class="input-group">
             <label for="login-password">Jelszó</label>
-            <input type="password" id="login-password" placeholder="••••••••" required>
-          </div>
+            <div class="password-wrapper">
+              <input type="password" id="login-password" name="login_password" placeholder="••••••••" required>
+              <button type="button" class="toggle-password" onclick="togglePassword('login-password', this)">
+                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>  
           
           <div class="form-options">
             <label class="remember-me">
@@ -85,27 +92,35 @@
           </button>
         </form>
 
-        <!-- REGISZTRÁCIÓ ŰRLAP -->
-        <form class="auth-form form-register" action="#" method="POST">
+        <!-- REGISZTRÁCIÓ (Itt van az ID a JS-hez) -->
+        <form class="auth-form form-register" id="registerForm">
           <div class="input-group">
             <label for="reg-name">Teljes név</label>
-            <input type="text" id="reg-name" placeholder="Kiss Péter" required>
+            <input type="text" id="reg-name" name="nev" placeholder="Kiss Péter" required>
           </div>
           <div class="input-group">
             <label for="reg-email">Email cím</label>
-            <input type="email" id="reg-email" placeholder="pelda@email.com" required>
+            <input type="email" id="reg-email" name="emailcim" placeholder="pelda@email.com" required>
           </div>
-            <div class="input-group">
-            <label for="reg-name">Telefon szám</label>
-            <input type="tel" id="reg-name" placeholder="06201234567" pattern="[0-9+\-\s()]+" required>
+          <div class="input-group">
+            <label for="reg-tel">Telefon szám</label>
+            <input type="tel" id="reg-tel" name="telszam" placeholder="06201234567" pattern="[0-9+\-\s()]+" required>
           </div>
-           <div class="input-group">
+          <div class="input-group">
             <label for="reg-birth">Születési dátum</label>
-            <input type="date" id="reg-birth" min="1900-01-01"  required>
+            <input type="date" id="reg-birth" name="szuletesi_datum" min="1900-01-01" required>
           </div>
           <div class="input-group">
             <label for="reg-password">Jelszó</label>
-            <input type="password" id="reg-password" placeholder="••••••••" required>
+            <div class="password-wrapper">
+              <input type="password" id="reg-password" name="jelszo" placeholder="••••••••" required>
+              <button type="button" class="toggle-password" onclick="togglePassword('reg-password', this)">
+                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
           </div>
           
           <div class="form-options">
@@ -115,7 +130,7 @@
                       <span class="checkmark"></span>
                   </label>
                   <span class="terms-text">
-                      Elolvastam és elfogadom az <a href="aszf.html" target="">Általános Szerződési Feltételeket</a>, valamint az <a href="privacy.html" target="">Adatvédelmi Tájékoztatót</a>.
+                      Elolvastam és elfogadom az <a href="aszf.html">Általános Szerződési Feltételeket</a>, valamint az <a href="privacy.html">Adatvédelmi Tájékoztatót</a>.
                   </span>
               </div>
           </div>
@@ -130,19 +145,75 @@
 
       </div>
     </div>
-
   </main>
-   <script>
-    // Megakadályozza, hogy az év mezőbe 4 karakternél többet lehessen írni
+
+  <!-- JAVASCRIPT RÉSZ -->
+  <script>
+    // 1. Évszám limitálása 4 karakterre
     document.getElementById('reg-birth').addEventListener('input', function(e) {
       const parts = e.target.value.split('-');
       if (parts[0] && parts[0].length > 4) {
-        parts[0] = parts[0].slice(0, 4); // Levágja a 4. karakter után
+        parts[0] = parts[0].slice(0, 4); 
         e.target.value = parts.join('-');
       }
     });
-  </script>
-</body>
 
+    // 2. Jelszó megjelenítése / elrejtése
+    function togglePassword(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const eyeIcon = btn.querySelector('svg');
+      
+      if (input.type === 'password') {
+        input.type = 'text';
+        eyeIcon.style.opacity = '0.5'; 
+      } else {
+        input.type = 'password';
+        eyeIcon.style.opacity = '1';
+      }
+    }
+   
+    // 3. Regisztráció beküldése (Fetch API)
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+      e.preventDefault(); // Megakadályozzuk az oldal újratöltését
+
+      // Adatok összegyűjtése a HTML mezőkből (a helyes ID-kkal!)
+      const nev = document.getElementById('reg-name').value;
+      const emailcim = document.getElementById('reg-email').value;
+      const telszam = document.getElementById('reg-tel').value;
+      const szuletesi_datum = document.getElementById('reg-birth').value;
+      const jelszo = document.getElementById('reg-password').value;
+
+      try {
+        // Adatok küldése a szervernek
+        const response = await fetch('/api/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            nev,
+            emailcim,
+            telszam,
+            szuletesi_datum,
+            jelszo
+          })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          alert('Sikeres regisztráció! Most már bejelentkezhetsz.');
+          // Visszaváltunk a bejelentkezés fülre
+          document.getElementById('tab-login').checked = true; 
+          document.getElementById('registerForm').reset();
+        } else {
+          alert('Hiba: ' + result.error);
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Hálózati hiba történt a regisztráció során!');
+      }
+    });
+  </script>
 </body>
 </html>

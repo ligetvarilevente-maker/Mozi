@@ -407,7 +407,43 @@ h1, h2, h3, .logo-text {
 
     transition: border-color 0.3s, background 0.3s;
 }
+/* ===== JELSZÓ MEZŐ ÉS SZEM IKON ===== */
 
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* A wrapperben lévő inputnak jobb oldalt hagyni kell helyet az ikonnak */
+.password-wrapper input {
+    padding-right: 45px; 
+}
+
+/* A gomb (szem ikon) stílusa */
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.toggle-password:hover {
+    color: var(--gold);
+    transform: scale(1.05);
+}
+
+.eye-icon {
+    width: 20px;
+    height: 20px;
+}
 .input-group input::placeholder {
     color: rgba(139,139,150,0.5);
 }
