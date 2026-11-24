@@ -1,0 +1,13 @@
+[
+  {
+    "timestamp": "2026-11-24T20:37:51.893Z",
+    "action": "REGISZTRACIO",
+    "data": {
+      "id": 1,
+      "nev": "Ligetvari Levente ",
+      "emailcim": "teszt@gmail.com",
+      "telszam": "06204588854",
+      "szuletesi_datum": "2000-04-02"
+    }
+  }
+]
