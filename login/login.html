@@ -225,6 +225,38 @@
 
       }
     });
+        // 4. Bejelentkezés kezelése
+    document.querySelector('.form-login').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const emailcim = document.getElementById('login-email').value;
+      const jelszo = document.getElementById('login-password').value;
+
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ emailcim, jelszo })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          // SIKERES BEJELENTKEZÉS
+          // Elmentjük a felhasználót a böngészőbe (localStorage)
+          localStorage.setItem('bejelentkezettUser', JSON.stringify(result.user));
+          
+          // Átirányítjuk a főoldalra
+          window.location.href = 'midnight.html';
+        } else {
+          // Hibaüzenet (pl. rossz jelszó)
+          alert(result.error); // Vagy használhatod a korábbi form-message div-et
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Hálózati hiba!');
+      }
+    });
   </script>
 </body>
 
