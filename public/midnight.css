@@ -545,3 +545,171 @@ h1, h2, h3 {
   .filmstrip span { width: 8px; height: 12px; }
   .section-head h2 { font-size: 1.6rem; }
 }
+/* ===== MODAL (FELUGRÓ ABLAK) ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+}
+
+.modal-content {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px; right: 20px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: var(--gold); }
+
+.modal-split {
+  display: flex;
+}
+
+.modal-left {
+  background: #16171f;
+  padding: 50px 40px;
+  flex: 1;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-left h2 {
+  font-size: 2.5rem;
+  color: var(--text);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.modal-left p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.modal-right {
+  padding: 50px 40px;
+  flex: 1.2;
+  background: var(--card);
+}
+
+.modal-right h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.modal-right ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.modal-right li {
+  color: var(--muted);
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.modal-right li::before {
+  content: '•';
+  color: var(--gold);
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+.btn-outline-gold {
+  display: block;
+  text-align: center;
+  padding: 14px 20px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  margin-bottom: 30px;
+}
+
+.btn-outline-gold:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.modal-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 30px 0;
+}
+
+.guest-link {
+  display: block;
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  transition: color 0.2s;
+}
+.guest-link:hover { color: var(--gold-hover); }
+
+.guest-note {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Reszponzív (Mobilon egymás alá kerül) */
+@media (max-width: 768px) {
+  .modal-split {
+    flex-direction: column;
+  }
+  .modal-left {
+    padding: 30px 20px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .modal-left h2 { font-size: 2rem; }
+  .modal-right { padding: 30px 20px; }
+}
