@@ -182,6 +182,14 @@
         eyeIcon.style.opacity = '1';
       }
     }
+    
+       // ÚJ RÉSZ: Fül kiválasztása az URL alapján
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('tab') === 'register') {
+        document.getElementById('tab-register').checked = true;
+      }
+    });
 
     // 3. Regisztráció beküldése (Fetch API)
     document.getElementById('registerForm').addEventListener('submit', async function (e) {

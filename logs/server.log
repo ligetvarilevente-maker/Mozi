@@ -11,3 +11,24 @@
 [2026-11-24T20:43:49.966Z] [404] [POST] /login.html 
 [2026-11-24T20:44:13.048Z] [404] [POST] /login.html 
 [2026-11-24T20:44:21.998Z] [404] [POST] /login.html 
+[2026-11-25T18:16:40.721Z] [200] [DB] CONNECT Adatbázis: Mozi
+[2026-11-25T18:16:40.726Z] [200] [SERVER] START Port: 3000
+[2026-11-25T18:16:43.305Z] [404] [GET] /favicon.ico 
+[2026-11-25T18:16:44.983Z] [404] [GET] /midnight.html 
+[2026-11-25T18:17:26.372Z] [404] [GET] /public/midnight.html 
+[2026-11-25T18:17:35.676Z] [200] [DB] CONNECT Adatbázis: Mozi
+[2026-11-25T18:17:35.681Z] [200] [SERVER] START Port: 3000
+[2026-11-25T18:17:37.901Z] [404] [GET] /public/midnight.html 
+[2026-11-25T18:18:48.153Z] [200] [DB] CONNECT Adatbázis: Mozi
+[2026-11-25T18:18:48.157Z] [200] [SERVER] START Port: 3000
+[2026-11-25T18:18:52.354Z] [404] [GET] /public/midnight.html 
+[2026-11-25T18:19:30.290Z] [404] [GET] /public/midnight.html 
+[2026-11-25T18:20:57.405Z] [200] [DB] CONNECT Adatbázis: Mozi
+[2026-11-25T18:20:57.409Z] [200] [SERVER] START Port: 3000
+[2026-11-25T18:20:59.826Z] [404] [GET] /public/midnight.html 
+[2026-11-25T18:21:26.926Z] [404] [GET] /public/midnight.html 
+[2026-11-25T18:21:27.344Z] [404] [GET] /public/midnight.html 
+[2026-11-25T18:21:27.510Z] [404] [GET] /public/midnight.html 
+[2026-11-25T18:21:28.460Z] [404] [GET] /public/midnight.html 
+[2026-11-25T18:21:33.820Z] [200] [DB] CONNECT Adatbázis: Mozi
+[2026-11-25T18:21:33.825Z] [200] [SERVER] START Port: 3000
