@@ -63,7 +63,6 @@
             </span>
           </a>
 
-          <!-- ITT A MÓDOSÍTÁS: ?tab=register -->
           <a href="login.html?tab=register" class="auth-pill left-expand" aria-label="Regisztráció">
             <span class="auth-text">Regisztráció</span>
             <span class="auth-icon">
@@ -77,14 +76,28 @@
         </div>
 
         <!-- Bejelentkezett felhasználó profilja (alapból rejtve) -->
-        <div id="user-profile" style="display: none; align-items: center; gap: 12px;">
-          <span id="welcome-user" style="color: var(--gold); font-weight: 500; font-size: 14px;"></span>
-          <button id="logout-btn" class="auth-pill left-expand" style="width: 40px; padding: 0; justify-content: center; border: 1px solid var(--border);" title="Kijelentkezés">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
-              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-              <polyline points="16 17 21 12 16 7"/>
-              <line x1="21" y1="12" x2="9" y2="12"/>
-            </svg>
+        <div id="user-profile" style="display: none; align-items: center; gap: 14px;">
+          <!-- Profil ikon kapszula (JAVÍTVA: profile.html) -->
+          <a href="profile.html" class="auth-pill left-expand" aria-label="Profil">
+            <span class="auth-text">Profilom</span>
+            <span class="auth-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </span>
+          </a>
+          
+          <!-- Kijelentkezés gomb kapszula -->
+          <button id="logout-btn" class="auth-pill left-expand" aria-label="Kijelentkezés">
+            <span class="auth-text">Kilépés</span>
+            <span class="auth-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                <polyline points="16 17 21 12 16 7"/>
+                <line x1="21" y1="12" x2="9" y2="12"/>
+              </svg>
+            </span>
           </button>
         </div>
       </div>
@@ -301,7 +314,8 @@
   <footer class="footer">
     <p>© 2026 Midnight Cinema — Minden jog fenntartva.</p>
   </footer>
-    <!-- JEGYVÁSÁRLÁS MODAL (Felugró ablak) -->
+
+  <!-- JEGYVÁSÁRLÁS MODAL (Felugró ablak) -->
   <div id="login-modal" class="modal-overlay" style="display: none;">
     <div class="modal-content">
       <button class="modal-close" id="modal-close-btn">&times;</button>
@@ -342,19 +356,11 @@
       const userString = localStorage.getItem('bejelentkezettUser');
       
       if (userString) {
-        // Be van jelentkezve
-        const user = JSON.parse(userString);
-        
-        // Elrejtjük a vendég gombokat, megjelenítjük a profilt
+        // Be van jelentkezve: elrejtjük a vendég gombokat, megjelenítjük a profilt
         document.getElementById('guest-buttons').style.display = 'none';
-        const profileDiv = document.getElementById('user-profile');
-        profileDiv.style.display = 'flex';
-        
-        // Kiírjuk a nevét
-        const firstName = user.nev.split(' ')[0]; 
-        document.getElementById('welcome-user').textContent = `Szia, ${firstName}!`;
+        document.getElementById('user-profile').style.display = 'flex';
       } else {
-        // Nincs bejelentkezve (vendég)
+        // Nincs bejelentkezve: megjelenítjük a vendég gombokat, elrejtjük a profilt
         document.getElementById('guest-buttons').style.display = 'flex';
         document.getElementById('user-profile').style.display = 'none';
       }
@@ -378,9 +384,8 @@
       
       const user = localStorage.getItem('bejelentkezettUser');
       if (!user) {
-        // Ha nincs bejelentkezve, megjelenítjük a szép modalt alert helyett
+        // Ha nincs bejelentkezve, megjelenítjük a szép modalt
         modal.style.display = 'flex';
-        // Pici késleltetés, hogy a CSS animáció (opacity) szépen lefusson
         setTimeout(() => modal.classList.add('active'), 10);
       } else {
         // Ha be van jelentkezve
