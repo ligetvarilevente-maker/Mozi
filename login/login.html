@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fiók - Midnight Cinema</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="login.css" />
 </head>
+
 <body>
 
   <!-- Globális háttér rétegek -->
@@ -21,8 +25,9 @@
 
   <!-- Vissza gomb -->
   <a href="midnight.html" class="back-link">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7" />
     </svg>
     Vissza a főoldalra
   </a>
@@ -30,13 +35,14 @@
   <!-- TARTALOM -->
   <main class="auth-wrapper">
     <div class="auth-container">
-      
+
       <!-- Logó -->
       <div class="auth-header">
         <a href="midnight.html" class="logo">
-          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="6" width="20" height="12" rx="2"/>
-            <path d="M6 6v12M18 6v12M2 10h4M2 14h4M18 10h4M18 14h4"/>
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="12" rx="2" />
+            <path d="M6 6v12M18 6v12M2 10h4M2 14h4M18 10h4M18 14h4" />
           </svg>
           <span class="logo-text">Midnight<span>Cinema</span></span>
         </a>
@@ -55,7 +61,7 @@
 
       <!-- Űrlapok -->
       <div class="auth-forms">
-        
+
         <!-- BEJELENTKEZÉS -->
         <form class="auth-form form-login" action="#" method="POST">
           <div class="input-group">
@@ -68,14 +74,15 @@
             <div class="password-wrapper">
               <input type="password" id="login-password" name="login_password" placeholder="••••••••" required>
               <button type="button" class="toggle-password" onclick="togglePassword('login-password', this)">
-                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </button>
             </div>
-          </div>  
-          
+          </div>
+
           <div class="form-options">
             <label class="remember-me">
               <input type="checkbox">
@@ -86,8 +93,9 @@
 
           <button type="submit" class="btn-gold btn-full">
             Bejelentkezés
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 6l6 6-6 6"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
           </button>
         </form>
@@ -115,30 +123,33 @@
             <div class="password-wrapper">
               <input type="password" id="reg-password" name="jelszo" placeholder="••••••••" required>
               <button type="button" class="toggle-password" onclick="togglePassword('reg-password', this)">
-                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </button>
             </div>
           </div>
-          
+
           <div class="form-options">
-              <div class="terms-checkbox">
-                  <label class="checkbox-wrapper">
-                      <input type="checkbox" required>
-                      <span class="checkmark"></span>
-                  </label>
-                  <span class="terms-text">
-                      Elolvastam és elfogadom az <a href="aszf.html">Általános Szerződési Feltételeket</a>, valamint az <a href="privacy.html">Adatvédelmi Tájékoztatót</a>.
-                  </span>
-              </div>
+            <div class="terms-checkbox">
+              <label class="checkbox-wrapper">
+                <input type="checkbox" required>
+                <span class="checkmark"></span>
+              </label>
+              <span class="terms-text">
+                Elolvastam és elfogadom az <a href="aszf.html">Általános Szerződési Feltételeket</a>, valamint az <a
+                  href="privacy.html">Adatvédelmi Tájékoztatót</a>.
+              </span>
+            </div>
           </div>
 
           <button type="submit" class="btn-gold btn-full">
             Fiók létrehozása
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 6l6 6-6 6"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
           </button>
         </form>
@@ -150,10 +161,10 @@
   <!-- JAVASCRIPT RÉSZ -->
   <script>
     // 1. Évszám limitálása 4 karakterre
-    document.getElementById('reg-birth').addEventListener('input', function(e) {
+    document.getElementById('reg-birth').addEventListener('input', function (e) {
       const parts = e.target.value.split('-');
       if (parts[0] && parts[0].length > 4) {
-        parts[0] = parts[0].slice(0, 4); 
+        parts[0] = parts[0].slice(0, 4);
         e.target.value = parts.join('-');
       }
     });
@@ -162,18 +173,18 @@
     function togglePassword(inputId, btn) {
       const input = document.getElementById(inputId);
       const eyeIcon = btn.querySelector('svg');
-      
+
       if (input.type === 'password') {
         input.type = 'text';
-        eyeIcon.style.opacity = '0.5'; 
+        eyeIcon.style.opacity = '0.5';
       } else {
         input.type = 'password';
         eyeIcon.style.opacity = '1';
       }
     }
-   
+
     // 3. Regisztráció beküldése (Fetch API)
-    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+    document.getElementById('registerForm').addEventListener('submit', async function (e) {
       e.preventDefault(); // Megakadályozzuk az oldal újratöltését
 
       // Adatok összegyűjtése a HTML mezőkből (a helyes ID-kkal!)
@@ -204,16 +215,17 @@
         if (result.success) {
           alert('Sikeres regisztráció! Most már bejelentkezhetsz.');
           // Visszaváltunk a bejelentkezés fülre
-          document.getElementById('tab-login').checked = true; 
+          document.getElementById('tab-login').checked = true;
           document.getElementById('registerForm').reset();
         } else {
-          
+
         }
       } catch (err) {
         console.error(err);
-        
+
       }
     });
   </script>
 </body>
+
 </html>
