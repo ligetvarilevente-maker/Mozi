@@ -44,8 +44,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Statikus fájlok kiszolgálása a 'login' mappából
+// Statikus fájlok kiszolgálása a 'login' ÉS a 'public' mappából is
 app.use(express.static(path.join(__dirname, 'login')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
     res.on('finish', () => {
