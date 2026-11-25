@@ -44,8 +44,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Statikus fájlok kiszolgálása a 'login' mappából
+// Statikus fájlok kiszolgálása a 'login' ÉS a 'public' mappából is
 app.use(express.static(path.join(__dirname, 'login')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
     res.on('finish', () => {
@@ -116,8 +117,9 @@ app.post('/api/login', async (req, res) => {
         }
 
         // Megkeressük a felhasználót az adatbázisban
+        // JAVÍTÁS: Most már a telszam és a szuletesi_datum is le van kérdezve
         const [rows] = await pool.query(
-            'SELECT id, nev, emailcim, jelszo FROM regisztracio WHERE emailcim = ?',
+            'SELECT id, nev, emailcim, telszam, szuletesi_datum, jelszo FROM regisztracio WHERE emailcim = ?',
             [emailcim]
         );
 
@@ -135,14 +137,64 @@ app.post('/api/login', async (req, res) => {
 
         // Sikeres bejelentkezés
         writeToJsonFile('BEJELENTKEZES', { id: user.id, emailcim: user.emailcim });
+        
+        // JAVÍTÁS: Visszaküldjük a telefonszámot és a születési dátumot is a profil oldalhoz
         res.status(200).json({
             success: true,
             message: 'Sikeres bejelentkezés!',
-            user: { id: user.id, nev: user.nev, emailcim: user.emailcim }
+            user: { 
+                id: user.id, 
+                nev: user.nev, 
+                emailcim: user.emailcim,
+                telszam: user.telszam,
+                szuletesi_datum: user.szuletesi_datum
+            }
         });
 
     } catch (err) {
         log(500, 'POST', '/api/login', err.message);
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// ===== PROFIL FRISSÍTÉSE VÉGPONT =====
+app.put('/api/update-profile', async (req, res) => {
+    try {
+        const { id, nev, telszam, szuletesi_datum, jelszo } = req.body;
+
+        // 1. Ellenőrizzük, hogy megkaptuk-e az ID-t
+        if (!id) {
+            return res.status(400).json({ success: false, error: 'Hiányzó felhasználó azonosító!' });
+        }
+
+        // 2. Ha van új jelszó, akkor azzal frissítünk, ha nincs, akkor csak a többi adattal
+        let query;
+        let values;
+
+        if (jelszo && jelszo.trim() !== '') {
+            query = 'UPDATE regisztracio SET nev = ?, telszam = ?, szuletesi_datum = ?, jelszo = ? WHERE id = ?';
+            values = [nev, telszam, szuletesi_datum, jelszo, id];
+        } else {
+            query = 'UPDATE regisztracio SET nev = ?, telszam = ?, szuletesi_datum = ? WHERE id = ?';
+            values = [nev, telszam, szuletesi_datum, id];
+        }
+
+        // 3. Lefuttatjuk a frissítést
+        const [result] = await pool.query(query, values);
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ success: false, error: 'Felhasználó nem található!' });
+        }
+
+        // 4. Visszaadjuk a választ (a frontend ebből tudja, hogy sikeres volt)
+        res.status(200).json({ 
+            success: true, 
+            message: 'Profil sikeresen frissítve!',
+            user: { id, nev, telszam, szuletesi_datum }
+        });
+
+    } catch (err) {
+        log(500, 'PUT', '/api/update-profile', err.message);
         res.status(500).json({ success: false, error: err.message });
     }
 });
@@ -166,7 +218,7 @@ app.use((req, res) => {
 
 initDb().then(() => {
     app.listen(PORT, () => {
-        console.log(` Szerver fut: http://localhost:${PORT}/login.html`);
+        console.log(` Szerver fut: http://localhost:${PORT}/midnight.html`);
         log(200, 'SERVER', 'START', `Port: ${PORT}`);
     });
 });

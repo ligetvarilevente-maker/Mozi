@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midnight Cinema</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="midnight.css" />
+</head>
+
+<body>
+
+  <!-- Globális háttér rétegek -->
+  <div class="bg-layer bg-grid" aria-hidden="true"></div>
+  <div class="bg-layer bg-glow bg-glow-gold" aria-hidden="true"></div>
+  <div class="bg-layer bg-glow bg-glow-wine" aria-hidden="true"></div>
+  <div class="bg-layer bg-grain" aria-hidden="true"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-topline"></div>
+    <div class="nav-inner">
+      <a href="midnight.html" class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="6" width="20" height="12" rx="2" />
+          <path d="M6 6v12M18 6v12M2 10h4M2 14h4M18 10h4M18 14h4" />
+        </svg>
+        <span class="logo-text">Midnight<span>Cinema</span></span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="#" class="active">Kezdőlap</a>
+        <a href="#">Filmek</a>
+        <a href="#">Mozik</a>
+        <a href="#">Ajánlatok</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Kereső -->
+        <div class="auth-pill search-pill left-expand" aria-label="Keresés">
+          <input type="text" class="search-input" placeholder="Keresés..." />
+          <span class="auth-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-3.5-3.5" />
+            </svg>
+          </span>
+        </div>
+
+        <!-- Vendég gombok (bejelentkezés / regisztráció) -->
+        <div id="guest-buttons" style="display: flex; gap: 14px;">
+          <a href="login.html" class="auth-pill left-expand" aria-label="Bejelentkezés">
+            <span class="auth-text">Bejelentkezés</span>
+            <span class="auth-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                <path d="M10 17l5-5-5-5" />
+                <path d="M15 12H3" />
+              </svg>
+            </span>
+          </a>
+
+          <a href="login.html?tab=register" class="auth-pill left-expand" aria-label="Regisztráció">
+            <span class="auth-text">Regisztráció</span>
+            <span class="auth-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M19 8v6M22 11h-6" />
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <!-- Bejelentkezett felhasználó profilja (alapból rejtve) -->
+        <div id="user-profile" style="display: none; align-items: center; gap: 14px;">
+          <!-- Profil ikon kapszula (JAVÍTVA: profile.html) -->
+          <a href="profile.html" class="auth-pill left-expand" aria-label="Profil">
+            <span class="auth-text">Profilom</span>
+            <span class="auth-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </span>
+          </a>
+          
+          <!-- Kijelentkezés gomb kapszula -->
+          <button id="logout-btn" class="auth-pill left-expand" aria-label="Kijelentkezés">
+            <span class="auth-text">Kilépés</span>
+            <span class="auth-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                <polyline points="16 17 21 12 16 7"/>
+                <line x1="21" y1="12" x2="9" y2="12"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-kicker">Most a mozikban</p>
+      <h1>Éjszakai vetítések,<br />amiket nem hagyhatsz ki</h1>
+      <p class="hero-sub">Válogatott filmek prémium élményben. Foglalj helyet még ma.</p>
+      <a href="#" class="btn-gold" id="hero-buy-btn">
+        Jegyvásárlás
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Filmtekercs elválasztó -->
+  <div class="filmstrip" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-label="Most vetítjük">
+    <div class="marquee-track">
+      <span>Most vetítjük</span>
+      <span class="dot">◆</span>
+      <span>A Csendes Utazó</span>
+      <span class="dot">◆</span>
+      <span>Éjfél Előtt</span>
+      <span class="dot">◆</span>
+      <span>Arany Horizont</span>
+      <span class="dot">◆</span>
+      <span>Elveszett Fények</span>
+      <span class="dot">◆</span>
+      <span>Utolsó Képkocka</span>
+      <span class="dot">◆</span>
+      <span>Csillagpor</span>
+      <span class="dot">◆</span>
+      <span>Most vetítjük</span>
+      <span class="dot">◆</span>
+      <span>A Csendes Utazó</span>
+      <span class="dot">◆</span>
+      <span>Éjfél Előtt</span>
+      <span class="dot">◆</span>
+      <span>Arany Horizont</span>
+      <span class="dot">◆</span>
+      <span>Elveszett Fények</span>
+      <span class="dot">◆</span>
+      <span>Utolsó Képkocka</span>
+      <span class="dot">◆</span>
+      <span>Csillagpor</span>
+      <span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- FILMEK -->
+  <section class="movies">
+    <div class="section-head">
+      <h2>Kiemelt filmek</h2>
+      <a href="#" class="see-all">
+        Összes film
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="poster">
+          <span class="rating">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l2.9 6.9 7.1.6-5.4 4.8 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.5l7.1-.6z" />
+            </svg>
+            8.5
+          </span>
+          <div class="poster-overlay">
+            <h3>A Csendes Utazó</h3>
+            <p class="poster-meta">Dráma · 1h 52m</p>
+          </div>
+          <a href="#" class="ticket-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 6 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-6z" />
+              <path d="M13 7v2M13 15v2" />
+            </svg>
+            Jegy
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="poster">
+          <span class="rating">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l2.9 6.9 7.1.6-5.4 4.8 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.5l7.1-.6z" />
+            </svg>
+            7.9
+          </span>
+          <div class="poster-overlay">
+            <h3>Éjfél Előtt</h3>
+            <p class="poster-meta">Romantikus · 1h 44m</p>
+          </div>
+          <a href="#" class="ticket-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 6 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-6z" />
+              <path d="M13 7v2M13 15v2" />
+            </svg>
+            Jegy
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="poster">
+          <span class="rating">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l2.9 6.9 7.1.6-5.4 4.8 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.5l7.1-.6z" />
+            </svg>
+            9.1
+          </span>
+          <div class="poster-overlay">
+            <h3>Arany Horizont</h3>
+            <p class="poster-meta">Kaland · 2h 10m</p>
+          </div>
+          <a href="#" class="ticket-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 6 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-6z" />
+              <path d="M13 7v2M13 15v2" />
+            </svg>
+            Jegy
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="poster">
+          <span class="rating">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l2.9 6.9 7.1.6-5.4 4.8 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.5l7.1-.6z" />
+            </svg>
+            8.2
+          </span>
+          <div class="poster-overlay">
+            <h3>Elveszett Fények</h3>
+            <p class="poster-meta">Thriller · 1h 58m</p>
+          </div>
+          <a href="#" class="ticket-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 6 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-6z" />
+              <path d="M13 7v2M13 15v2" />
+            </svg>
+            Jegy
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="poster">
+          <span class="rating">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l2.9 6.9 7.1.6-5.4 4.8 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.5l7.1-.6z" />
+            </svg>
+            7.6
+          </span>
+          <div class="poster-overlay">
+            <h3>Utolsó Képkocka</h3>
+            <p class="poster-meta">Dokumentum · 1h 36m</p>
+          </div>
+          <a href="#" class="ticket-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 6 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-6z" />
+              <path d="M13 7v2M13 15v2" />
+            </svg>
+            Jegy
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="poster">
+          <span class="rating">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l2.9 6.9 7.1.6-5.4 4.8 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.5l7.1-.6z" />
+            </svg>
+            8.8
+          </span>
+          <div class="poster-overlay">
+            <h3>Csillagpor</h3>
+            <p class="poster-meta">Sci-fi · 2h 02m</p>
+          </div>
+          <a href="#" class="ticket-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 6 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-6z" />
+              <path d="M13 7v2M13 15v2" />
+            </svg>
+            Jegy
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Midnight Cinema — Minden jog fenntartva.</p>
+  </footer>
+
+  <!-- JEGYVÁSÁRLÁS MODAL (Felugró ablak) -->
+  <div id="login-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close-btn">&times;</button>
+      
+      <div class="modal-split">
+        <!-- Bal oldal -->
+        <div class="modal-left">
+          <h2>Kedves<br>Nézőnk!</h2>
+          <p>Jegyvásárláshoz kérjük, jelentkezz be fiókodba!</p>
+          <a href="login.html" class="btn-gold" style="margin-top: 20px; display: inline-block; text-align: center; width: 100%;">BEJELENTKEZÉS</a>
+        </div>
+        
+        <!-- Jobb oldal -->
+        <div class="modal-right">
+          <h3>A Midnight Cinema fiók a következőket foglalja magában:</h3>
+          <ul>
+            <li>Gyors jegyvásárlás</li>
+            <li>Online jegyek kezelése</li>
+            <li>Exkluzív ajánlatok és kedvezmények</li>
+            <li>Jegyvásárlás a vetítés kezdete előtt akár 3 órával is</li>
+          </ul>
+          
+          <a href="login.html?tab=register" class="btn-outline-gold">CSATLAKOZZ INGYENESEN!</a>
+          
+          <div class="modal-divider"></div>
+          
+          <a href="#" class="guest-link" id="continue-as-guest">VÁSÁRLÁS VENDÉGKÉNT, REGISZTRÁCIÓ NÉLKÜL</a>
+          <p class="guest-note">Kérjük, vedd figyelembe, hogy vendégként korlátozottan vehetsz igénybe bizonyos szolgáltatásokat.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- JAVASCRIPT: Állapotkezelés és események -->
+  <script>
+    // 1. Felhasználói állapot ellenőrzése betöltéskor
+    document.addEventListener('DOMContentLoaded', () => {
+      const userString = localStorage.getItem('bejelentkezettUser');
+      
+      if (userString) {
+        // Be van jelentkezve: elrejtjük a vendég gombokat, megjelenítjük a profilt
+        document.getElementById('guest-buttons').style.display = 'none';
+        document.getElementById('user-profile').style.display = 'flex';
+      } else {
+        // Nincs bejelentkezve: megjelenítjük a vendég gombokat, elrejtjük a profilt
+        document.getElementById('guest-buttons').style.display = 'flex';
+        document.getElementById('user-profile').style.display = 'none';
+      }
+    });
+
+    // 2. Kijelentkezés gomb kezelése
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('#logout-btn')) {
+        localStorage.removeItem('bejelentkezettUser');
+        window.location.reload(); // Újratöltjük az oldalt
+      }
+    });
+
+    // 3. Jegyvásárlás és a MODAL kezelése
+    const modal = document.getElementById('login-modal');
+    const closeModalBtn = document.getElementById('modal-close-btn');
+    const continueAsGuest = document.getElementById('continue-as-guest');
+
+    function handleBuyTicket(e) {
+      e.preventDefault(); // Megakadályozzuk az ugrást
+      
+      const user = localStorage.getItem('bejelentkezettUser');
+      if (!user) {
+        // Ha nincs bejelentkezve, megjelenítjük a szép modalt
+        modal.style.display = 'flex';
+        setTimeout(() => modal.classList.add('active'), 10);
+      } else {
+        // Ha be van jelentkezve
+        alert('Sikeres azonosítás! Hamarosan a fizetési oldalra kerülsz. (Ez egy demó)');
+      }
+    }
+
+    // Modal bezárása X gombbal
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+        setTimeout(() => modal.style.display = 'none', 300);
+      });
+    }
+
+    // Modal bezárása, ha a sötét háttérre kattintunk
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          setTimeout(() => modal.style.display = 'none', 300);
+        }
+      });
+    }
+
+    // Vendégként folytatás
+    if (continueAsGuest) {
+      continueAsGuest.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.remove('active');
+        setTimeout(() => modal.style.display = 'none', 300);
+        alert('Vendég vásárlás kiválasztva. (Ez a funkció még fejlesztés alatt áll)');
+      });
+    }
+
+    // A jegyvásárlás gombokra rátesszük az eseménykezelőt
+    const ticketButtons = document.querySelectorAll('.ticket-btn');
+    ticketButtons.forEach(btn => {
+      btn.addEventListener('click', handleBuyTicket);
+    });
+
+    // A Hero részben lévő "Jegyvásárlás" gombra is
+    const heroBuyBtn = document.getElementById('hero-buy-btn');
+    if (heroBuyBtn) {
+      heroBuyBtn.addEventListener('click', handleBuyTicket);
+    }
+  </script>
+</body>
+
+</html>

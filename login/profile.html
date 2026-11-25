@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil - Midnight Cinema</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+
+  <!-- Globális háttér rétegek -->
+  <div class="bg-layer bg-grid" aria-hidden="true"></div>
+  <div class="bg-layer bg-glow bg-glow-gold" aria-hidden="true"></div>
+  <div class="bg-layer bg-glow bg-glow-wine" aria-hidden="true"></div>
+  <div class="bg-layer bg-grain" aria-hidden="true"></div>
+  <div class="bg-layer bg-filmstrip-1" aria-hidden="true"></div>
+  <div class="bg-layer bg-filmstrip-2" aria-hidden="true"></div>
+
+  <!-- Vissza gomb -->
+  <a href="midnight.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Vissza a főoldalra
+  </a>
+
+  <!-- PROFIL TARTALOM -->
+  <main class="profile-wrapper">
+    <div class="profile-container">
+      
+      <!-- Oldalsáv (Sidebar) -->
+      <aside class="profile-sidebar">
+        <div class="profile-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </div>
+        <h2 id="sidebar-name">Felhasználó</h2>
+        <p id="sidebar-email">email@pelda.hu</p>
+
+        <nav class="profile-nav">
+          <button class="nav-btn active" data-target="settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            Fiók beállítások
+          </button>
+          <button class="nav-btn" data-target="tickets">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 6 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-6z"/><path d="M13 7v2M13 15v2"/></svg>
+            Jegyeim
+          </button>
+          <button class="nav-btn" id="logout-btn-sidebar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Kijelentkezés
+          </button>
+        </nav>
+      </aside>
+
+      <!-- Jobb oldali tartalom -->
+      <div class="profile-content">
+        
+        <!-- Fiók Beállítások Szekció -->
+        <section id="settings-section" class="content-section active">
+          <h1>Fiók beállítások</h1>
+          <p class="section-desc">Itt módosíthatod a személyes adataidat.</p>
+
+          <div id="profile-message" class="form-message"></div>
+
+          <form id="profileForm" class="profile-form">
+            <div class="input-group">
+              <label for="prof-name">Teljes név</label>
+              <input type="text" id="prof-name" required>
+            </div>
+            
+            <div class="input-group">
+              <label for="prof-email">Email cím</label>
+              <input type="email" id="prof-email" disabled title="Az email cím nem módosítható">
+            </div>
+
+            <div class="input-group">
+              <label for="prof-tel">Telefonszám</label>
+              <input type="tel" id="prof-tel" pattern="[0-9+\-\s()]+">
+            </div>
+
+            <div class="input-group">
+              <label for="prof-birth">Születési dátum</label>
+              <input type="date" id="prof-birth" min="1900-01-01">
+            </div>
+
+            <div class="input-group">
+              <label for="prof-password">Új jelszó (hagyd üresen, ha nem akarod megváltoztatni)</label>
+              <div class="password-wrapper">
+                <input type="password" id="prof-password" placeholder="••••••••">
+                <button type="button" class="toggle-password" onclick="togglePassword('prof-password', this)">
+                  <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-gold btn-full">Módosítások mentése</button>
+          </form>
+        </section>
+
+        <!-- Jegyeim Szekció (Demó) -->
+        <section id="tickets-section" class="content-section" style="display: none;">
+          <h1>Jegyeim</h1>
+          <p class="section-desc">Itt találod a megvásárolt jegyeidet.</p>
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 6 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-6z" />
+              <path d="M13 7v2M13 15v2" />
+            </svg>
+            <p>Még nincsenek megvásárolt jegyeid.</p>
+            <a href="midnight.html" class="btn-gold" style="margin-top: 15px;">Böngéssz a filmek között</a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Bejelentkezés ellenőrzése
+      const userString = localStorage.getItem('bejelentkezettUser');
+      if (!userString) {
+        // Ha nincs bejelentkezve, visszairányítjuk a login oldalra
+        window.location.href = 'login.html';
+        return;
+      }
+
+      const user = JSON.parse(userString);
+
+      // 2. Adatok betöltése a HTML-be
+      document.getElementById('sidebar-name').textContent = user.nev;
+      document.getElementById('sidebar-email').textContent = user.emailcim;
+      
+      // Az űrlap kitöltése (itt feltételezzük, hogy a bejelentkezéskor visszakaptuk ezeket az adatokat is)
+      // Ha a login API nem küldi vissza a telefonszámot/szülinapot, akkor azok üresek lesznek.
+      document.getElementById('prof-name').value = user.nev;
+      document.getElementById('prof-email').value = user.emailcim;
+      // Ha a szerver küldte ezeket a bejelentkezéskor (a login.js-ben beállítható), akkor itt megjelennek:
+       document.getElementById('prof-tel').value = user.telszam || '';
+       document.getElementById('prof-birth').value = user.szuletesi_datum || '';
+
+      // 3. Fül váltás (Beállítások / Jegyeim)
+      const navBtns = document.querySelectorAll('.nav-btn[data-target]');
+      const sections = document.querySelectorAll('.content-section');
+
+      navBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Aktív gomb beállítása
+          navBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          // Tartalom megjelenítése
+          const targetId = btn.getAttribute('data-target') + '-section';
+          sections.forEach(sec => {
+            sec.style.display = 'none';
+            sec.classList.remove('active');
+          });
+          const targetSection = document.getElementById(targetId);
+          targetSection.style.display = 'block';
+          setTimeout(() => targetSection.classList.add('active'), 10);
+        });
+      });
+
+      // 4. Kijelentkezés
+      document.getElementById('logout-btn-sidebar').addEventListener('click', () => {
+        localStorage.removeItem('bejelentkezettUser');
+        window.location.href = 'midnight.html';
+      });
+
+      // 5. Jelszó megjelenítése
+      window.togglePassword = function(inputId, btn) {
+        const input = document.getElementById(inputId);
+        const eyeIcon = btn.querySelector('svg');
+        if (input.type === 'password') {
+          input.type = 'text';
+          eyeIcon.style.opacity = '0.5'; 
+        } else {
+          input.type = 'password';
+          eyeIcon.style.opacity = '1';
+        }
+      };
+      // 6. Űrlap beküldése (Módosítások mentése)
+      document.getElementById('profileForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const msgBox = document.getElementById('profile-message');
+        msgBox.className = 'form-message';
+        msgBox.textContent = '';
+
+        const nev = document.getElementById('prof-name').value;
+        const tel = document.getElementById('prof-tel').value;
+        const birth = document.getElementById('prof-birth').value;
+        const pass = document.getElementById('prof-password').value;
+
+        // A felhasználó ID-ja a localStorage-ból
+        const userId = user.id;
+
+        try {
+          // Adatok küldése a szervernek
+          const response = await fetch('/api/update-profile', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: userId,
+              nev: nev,
+              telszam: tel,
+              szuletesi_datum: birth,
+              jelszo: pass
+            })
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            // Frissítjük a helyi tárolót, hogy a menüben is látszódjon az új név
+            user.nev = nev;
+            user.telszam = tel;
+            user.szuletesi_datum = birth;
+            localStorage.setItem('bejelentkezettUser', JSON.stringify(user));
+            
+            // Frissítjük a bal oldali menüt
+            document.getElementById('sidebar-name').textContent = nev;
+
+            // Sikeres üzenet
+            msgBox.textContent = 'Adatok sikeresen mentve!';
+            msgBox.classList.add('success');
+
+            // Kitöröljük a jelszó mezőt (biztonság kedvéért)
+            document.getElementById('prof-password').value = '';
+
+          } else {
+            // Hibaüzenet
+            msgBox.textContent = 'Hiba: ' + result.error;
+            msgBox.classList.add('error');
+          }
+        } catch (err) {
+          console.error(err);
+          msgBox.textContent = 'Hálózati hiba történt a mentés során!';
+          msgBox.classList.add('error');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
